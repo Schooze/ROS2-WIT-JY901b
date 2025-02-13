@@ -15,6 +15,8 @@ This repository contains ROS2 nodes and example scripts for interfacing with the
 - [Configuration](#configuration)
 - [License](#license)
 
+https://category.yahboom.net/products/imu?_pos=1&_sid=f9fcdebd5&_ss=r
+
 ## Installation
 
 1. Clone the repository:
