@@ -122,6 +122,20 @@ try:
             #     acc_x_values.clear()
             #     acc_y_values.clear()
             #     acc_z_values.clear()
+        elif data[1] == 86:
+            p0 = data[2]
+            p1 = data[3]
+            p2 = data[4]
+            p3 = data[5]
+            h0 = data[6]
+            h1 = data[7]
+            h2 = data[8]
+            h3 = data[9]
+            
+            p = (p3 << 24) | (p2 << 16) | (p1 << 8) | p0
+            h = (h3 << 24) | (h2 << 16) | (h1 << 8) | h0
+            # print(f"Pressure output:{p:.1f} Pa")
+            # print(f"Height output:{h:.1f} cm")
         # print("----",data[0], data[1])
 except KeyboardInterrupt:
     jy_sensor.close()
