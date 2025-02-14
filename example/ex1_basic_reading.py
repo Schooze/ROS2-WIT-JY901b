@@ -3,7 +3,7 @@ import sys
 import math
 import numpy as np
 import serial
-def combine_bytes(DataH, DataL):
+def combine_bytes_angle(DataH, DataL):
     # Convert DataH to a signed 16-bit value and shift it 8 bits to the left
     DataH = (DataH & 0xFF)  # Ensure DataH is within 8 bits (0-255)
     DataL = (DataL & 0xFF)  # Ensure DataL is within 8 bits (0-255)
@@ -45,11 +45,11 @@ try:
             # print(f"Magnetic output:{x:.1f}, {y:.1f}, {z:.1f} uT")
         #Angle
         elif data[1] == 83:
-            roll = combine_bytes(data[3], data[2])
+            roll = combine_bytes_angle(data[3], data[2])
             roll = roll/32768*180
-            pitch = combine_bytes(data[5], data[4])
+            pitch = combine_bytes_angle(data[5], data[4])
             pitch = pitch/32768*180
-            yaw = combine_bytes(data[7], data[6])
+            yaw = combine_bytes_angle(data[7], data[6])
             yaw = yaw/32768*180
             # x = int.from_bytes(data[2:4], byteorder='little')/32768*180
             # y = int.from_bytes(data[4:6], byteorder='little')/32768*180
