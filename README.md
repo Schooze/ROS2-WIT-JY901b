@@ -1,23 +1,35 @@
-# WIT-JY901b ROS2 Integration
+# ROS2 IMU WIT-JY901b Integration
 
-This repository contains ROS2 nodes and example scripts for interfacing with the WIT-Motion JY901b IMU sensor. The sensor data is read via a serial port and published to ROS2 topics for further processing.
+This repository provides ROS 2 nodes and example scripts for integrating the WIT-Motion JY901b IMU sensor. The sensor data is read via a serial port and published to ROS 2 topics, enabling real-time orientation tracking, motion analysis, and 3D visualization.
 
-## Table of Contents
+📌 Key Features:  
+✅ Serial Communication – Reads IMU data via UART/USB  
+✅ ROS 2 Node Integration – Publishes IMU data in real-time  
+✅ 3D Visualization – Interactive display using PyOpenGL  
+✅ Example Scripts – Ready-to-run Python scripts for quick testing  
 
-- [Installation](#installation)
-- [Usage](#usage)
+## 📦 Product Info
+  
+[📍 **Product Link**](https://category.yahboom.net/products/imu?_pos=1&_sid=f9fcdebd5&_ss=r)  
+[📜 **Datasheet**](https://github.com/Schooze/ROS2-WIT-JY901b/blob/main/Witmotion%20JY901%20Datasheet.pdf)
+
+
+
+## 📖 Table of Contents
+
 - [Nodes](#nodes)
   - [Serial to IMU Node](#serial-to-imu-node)
   - [IMU Listener Node](#imu-listener-node)
-- [Examples](#examples)
-  - [Basic Reading](#basic-reading)
-  - [3D Box Visualization](#3d-box-visualization)
-- [Configuration](#configuration)
-- [License](#license)
+- [Program Examples](#examples) 🛠️
+  - [Basic Reading](https://github.com/Schooze/ROS2-WIT-JY901b/blob/main/example/ex1_basic_reading.py) 📊
+  - [3D Box Visualization](https://github.com/Schooze/ROS2-WIT-JY901b/blob/main/example/ex2_box.py) 📦
+  - [ROS2 Basic Reading](https://github.com/Schooze/ROS2-WIT-JY901b/blob/main/example/ex3_ros_basic_reading.py) 🤖
+- [Configuration](#configuration) ⚙️
+- [How to Get Started](#how-to-get-started) 🚀
+- [License](#license) 📜
 
-https://category.yahboom.net/products/imu?_pos=1&_sid=f9fcdebd5&_ss=r
 
-## Installation
+## 🚀 Getting Started
 
 1. Clone the repository:
     ```bash
@@ -36,11 +48,11 @@ https://category.yahboom.net/products/imu?_pos=1&_sid=f9fcdebd5&_ss=r
     source install/setup.bash
     ```
 
-## Usage
+## License
 
-### Launch the ROS2 Node
+This project is licensed under the **MIT License** – you're free to use, modify, and distribute it. See the [LICENSE](https://github.com/Schooze/ROS2-WIT-JY901b/blob/main/LICENSE) file for details.
 
-To launch the ROS2 node that reads data from the JY901b sensor and publishes it to the `/imu` topic, use the following command:
+--- 
+💡 Need Help? Open an issue or reach out! 🚀
 
-```bash
-ros2 launch witmotion_ros wt901.launch.py
+Let me know if you'd like any modifications! 🚀🔥
