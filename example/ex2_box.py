@@ -111,7 +111,7 @@ while running:
 
     glRotatef(pitch, 1, 0, 0)   # Rotasi terhadap sumbu X
     glRotatef(yaw, 0, 1, 0)     # Rotasi terhadap sumbu Y
-    glRotatef(reverse_angle(roll), 0, 0, 1)  # Rotasi terhadap sumbu Z
+    glRotatef(roll, 0, 0, 1)  # Rotasi terhadap sumbu Z
 
     draw_colored_cube()  # Gambar kubus dengan warna
     draw_red_outline()   # Tambahkan outline merah

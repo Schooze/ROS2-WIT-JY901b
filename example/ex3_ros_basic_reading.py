@@ -49,19 +49,19 @@ class Config:
     """
     PUBLISH TOPIC ENABLE
     """
-    PUBLISH_ACCELERO = True
-    PUBLISH_ANGULAR_VELOCITY = True
-    PUBLISH_ANGLE = True
-    PUBLISH_MAGNETIC = True
-    PUBLISH_QUATERNION = True
+    PUBLISH_ACCELERO = False
+    PUBLISH_ANGULAR_VELOCITY = False
+    PUBLISH_ANGLE = False
+    PUBLISH_MAGNETIC = False
+    PUBLISH_QUATERNION = False
     
     ########################################
     """
     Acceleration offset values
     """
-    ACC_X_OFFSET = -0.100
-    ACC_Y_OFFSET = -0.005
-    ACC_Z_OFFSET = 9.770
+    ACC_X_OFFSET = 0.0
+    ACC_Y_OFFSET = 0.0
+    ACC_Z_OFFSET = 0.0
     
     ########################################
     """
@@ -80,7 +80,7 @@ class Config:
 
 class IMU_Node(Node):
     def __init__(self):
-        super().__init__("WIT-JY901b") #Node Name
+        super().__init__("WITJY901b") #Node Name
         self.subscriber_ = self.create_subscription(String, "imu", self.callback_robot_news, 10) #(tipe data, topics, proses msg, queue)
         self.get_logger().info("WIT-JY901b Node has been started")
         
@@ -124,7 +124,7 @@ class IMU_Node(Node):
                     azh = data[7]
                     
                     # Acceleration sensitivity (16.0 m/s^2 per 32768 LSB)
-                    k_acc = 16.0 * Config.G
+                    k_acc = 16.0
                     
                     self.acc_x = ((axh << 8) | axl) / 32768.0 * k_acc
                     self.acc_y = ((ayh << 8) | ayl) / 32768.0 * k_acc
@@ -144,7 +144,9 @@ class IMU_Node(Node):
                         self.calibrated_acc_y = self.acc_y - Config.ACC_Y_OFFSET
                         self.calibrated_acc_z = self.acc_z - Config.ACC_Z_OFFSET
                         
-                        print(f"Acceleration output: {self.calibrated_acc_x:.3f}, {self.calibrated_acc_y:.3f}, {self.calibrated_acc_z:.3f} m/s^2")
+                        print(f"Acceleration output before: {self.acc_x:.3f}, {self.acc_y:.3f}, {self.acc_z:.3f} m/s^2")
+                        
+                        print(f"Acceleration output after : {self.calibrated_acc_x:.3f}, {self.calibrated_acc_y:.3f}, {self.calibrated_acc_z:.3f} m/s^2\n\n")
                 
             # Angular velocity output
             if Config.PUBLISH_ANGULAR_VELOCITY:
